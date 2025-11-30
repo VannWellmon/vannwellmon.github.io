@@ -1,60 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Your Name</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  body {
-    font-family: -apple-system, Helvetica, Arial, sans-serif;
-    max-width: 700px;
-    margin: 40px auto;
-    line-height: 1.6;
-    color: #111;
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-  }
-  header a {
-    margin-left: 20px;
-    color: #111;
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
-  header a:hover {
-    text-decoration: underline;
-  }
-  h1 {
-    margin: 0;
-  }
-  ul { padding-left: 20px; }
-  a.post-link {
-    text-decoration: none;
-    color: #000;
-  }
-  a.post-link:hover { text-decoration: underline; }
-</style>
+  <meta charset="UTF-8">
+  <title>My Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --max-width: 900px;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif;
+      --font-heading: Georgia, "Times New Roman", serif;
+      --link-color: #0645ad;
+      --link-hover: #0b0080;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      line-height: 1.5;
+      background: #fdfdfd;
+      color: #222;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+      color: var(--link-hover);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      padding: 0.5rem 1rem;
+      background: #000;
+      color: #fff;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      left: 0.5rem;
+      top: 0.5rem;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .top-nav,
+    .secondary-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      padding: 0;
+      margin: 0.25rem 0;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .intro {
+      margin: 1.5rem 0;
+      font-size: 1rem;
+    }
+
+    .intro p {
+      margin: 0.3rem 0;
+    }
+
+    h2, h3 {
+      font-family: var(--font-heading);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .recent-posts {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .recent-posts-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.3rem 0;
+    }
+
+    .recent-posts-list li {
+      margin: 0.15rem 0;
+    }
+
+    .post-date {
+      font-weight: 600;
+      margin-right: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .categories {
+      margin-top: 2rem;
+    }
+
+    .category {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .category-posts {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .category-posts li {
+      margin: 0.15rem 0;
+    }
+
+    .category-posts a {
+      margin-left: 0.25rem;
+    }
+
+    .category .see-more {
+      display: inline-block;
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 700px) {
+      .page {
+        padding: 2.5rem 1rem 4rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-<header>
-  <h1>Your Name</h1>
-  <div>
-    <a href="mailto:you@email.com">Email</a>
-    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-    <a href="/about.html">About</a>
-  </div>
-</header>
+  <div class="page">
+    <header>
+      <h1>My Blog</h1>
 
-<h2>Posts</h2>
-<ul>
-  <li><a class="post-link" href="/posts/post1.html">My First Blog Post</a> — Jan 2025</li>
-  <li><a class="post-link" href="/posts/post2.html">Another Post</a> — Feb 2025</li>
-  <li><a class="post-link" href="/posts/post3.html">Yet Another Post</a> — Mar 2025</li>
-</ul>
+      <nav aria-label="Primary">
+        <ul class="top-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#talks">Talks</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="https://example.com/mastodon">Mastodon</a></li>
+          <li><a href="https://example.com/bluesky">Bluesky</a></li>
+          <li><a href="https://github.com/">Github</a></li>
+        </ul>
+      </nav>
 
-</body>
-</html>
+      <nav aria-label="Secondary">
+        <ul class="secondary-nav">
+          <li><a href="#favorites">Favorites</a></li>
+          <li><a href="#til">TIL</a></li>
+          <li><a href="#zines">Zines</a></li>
+          <li><a href="#rss">RSS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="intro" aria-label="Introduction">
+        <p>Hey! I'm Alex. Welcome to my blog.</p>
+        <p>Here’s every post I’ve ever written, organized by category. Enjoy!</p>
+        <p>
+          You can subscribe to a
+          <a href="#weekly-digest">weekly digest of these blog posts</a>.
+        </p>
+        <p>
+          I also publish computer zines at
+          <a href="#zines">My Zines</a>.
+        </p>
+      </section>
+
+      <section class="recent-posts" aria-labelledby="recent-posts-heading">
+        <h2 id="recent-posts-heading">Most recent 10 posts</h2>
+
+        <ul class="recent-posts-list">
+          <li>
+            <span class="post-date">Oct 10 2025</span>
+            <a href="#post-helix">Notes on switching editors</a>
+          </li>
+          <li>
+            <span class="post-date">Jun 26 2025</span>
+            <a href="#post-terminal-zine">New zine: Secrets of the Terminal</a>
+          </li>
+          <li>
+            <span class="post-date">Jun 10 2025</span>
+            <a href="#post-make">Using <code>make</code> without being a C programmer</a>
+          </li>
+          <li>
+            <span class="post-date">Mar 7 2025</span>
+            <a href="#post-ansi">Standards for ANSI escape codes</a>
+          </li>
+          <li>
+            <span class="post-date">Feb 13 2025</span>
+            <a href="#post-path">How to add a directory to your PATH</a>
+          </li>
+          <li>
+            <span class="post-date">Feb 5 2025</span>
+            <a href="#post-frustrations">Some terminal frustrations</a>
+          </li>
+          <li>
+            <span class="post-date">Jan 11 2025</span>
+            <a href="#post-modern-terminal">What’s involved in a “modern” terminal setup?</a>
+          </li>
+          <li>
+            <span class="post-date">Dec 12 2024</span>
+            <a href="#post-terminal-rules">“Rules” that terminal programs follow</a>
+          </li>
+          <li>
+            <span class="post-date">Nov 29 2024</span>
+            <a href="#post-pipes">Why pipes sometimes get “stuck”: buffering</a>
+          </li>
+          <li>
+            <span class="post-date">Nov 18 2024</span>
+            <a href="#post-frontend-lib">
+              Importing a frontend library without a build system
+            </a>
+          </li>
+        </ul>
+
+        <p>and all posts by category: (or see <a href="#popular-posts">popular posts</a>)</p>
+      </section>
+
+      <section class="categories" aria-label="All posts by category">
+        <!-- Example Category 1 -->
+        <section class="category" aria-labelledby="cat-uncategorized">
+          <h3 id="cat-uncategorized">Uncategorized</h3>
+          <ul class="category-posts">
+            <li>
+              <span class="post-date">Oct 2025</span>
+              <a href="#post-helix">Notes on switching editors</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 2025</span>
+              <a href="#post-terminal-zine">New zine: Secrets of the Terminal</a>
+            </li>
+            <li>
+              <span class="post-date">Jun 2025</span>
+              <a href="#post-make">Using <code>make</code> without being a C programmer</a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Example Category 2 -->
+        <section class="category" aria-labelledby="cat-tools">
+          <h3 id="cat-tools">Cool computer tools / features / ideas</h3>
+          <ul class="category-posts">
+            <li>
+              <span class="post-date">Sep 2024</span>
+              <a href="#post-go-notes">Some Go web dev notes</a>
+            </li>
+            <li>
+              <span class="post-date">Sep 2024</span>
+              <a href="#post-fish">Reasons I still
