@@ -2,112 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Example Blog – Home</title>
+  <title>Your Name</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted-text: #555555;
-      --accent: #004aad;
-      --accent-muted: #e0ecff;
-      --link: #005bbb;
-      --link-hover: #003f7d;
-      --border: #dddddd;
-      --max-width: 1000px;
-      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-                   "Liberation Mono", "Courier New", monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.5;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover,
-    a:focus {
-      text-decoration: underline;
-      color: var(--link-hover);
+      color: #222;
     }
 
     .page {
-      max-width: var(--max-width);
+      max-width: 900px;
       margin: 0 auto;
       padding: 1.5rem 1rem 3rem;
     }
 
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      background: #000;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      z-index: 10;
-    }
-
-    .skip-link:focus {
-      left: 0.5rem;
-      top: 0.5rem;
-    }
-
     header {
       display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.5rem 2rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid #ddd;
       padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .site-title {
-      font-size: 1.8rem;
+      font-size: 3rem;
       font-weight: 700;
+      color: #e75b00; /* change this to your color */
       margin: 0;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      font-size: 0.95rem;
-    }
-
     nav a {
-      padding: 0.1rem 0;
-    }
-
-    nav a.nav-pill {
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      background: transparent;
-      border: 1px solid transparent;
-    }
-
-    nav a.nav-pill:hover,
-    nav a.nav-pill:focus {
-      background: var(--accent-muted);
-      border-color: var(--accent);
+      display: block;
+      text-align: right;
       text-decoration: none;
+      color: #222;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0.15rem 0;
     }
 
-    main {
-      margin-top: 1rem;
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .intro {
@@ -116,396 +55,94 @@
     }
 
     .intro p {
-      margin: 0.25rem 0;
+      margin: 0.3rem 0;
     }
 
-    .intro-highlight {
-      background: var(--accent-muted);
-      border-left: 4px solid var(--accent);
-      padding: 0.75rem 1rem;
-      border-radius: 4px;
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
+    h2.section-title {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.6rem;
     }
 
-    /* Layout for main content */
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 2.5fr);
-      gap: 2.5rem;
-    }
-
-    /* “Most recent” section */
-    .section-title {
-      font-size: 1.25rem;
-      margin: 1.5rem 0 0.5rem;
-    }
-
-    .recent-posts-list {
-      font-size: 0.95rem;
-    }
-
-    .recent-posts-list li {
-      margin: 0.2rem 0;
+    ul.post-list {
       list-style: none;
-    }
-
-    .post-date-inline {
-      font-variant-numeric: tabular-nums;
-      color: var(--muted-text);
-      margin-right: 0.4rem;
-      white-space: nowrap;
-    }
-
-    /* Categories list */
-    .categories {
-      margin-top: 1.5rem;
-    }
-
-    .category {
-      margin: 1.25rem 0 1.75rem;
-    }
-
-    .category h3 {
-      font-size: 1.1rem;
-      margin: 0 0 0.4rem;
-    }
-
-    .category-posts {
+      padding-left: 0;
+      margin: 0;
       font-size: 0.95rem;
     }
 
-    .category-posts .post-item {
-      display: inline;
+    ul.post-list li {
+      margin: 0.15rem 0;
+    }
+
+    .post-date {
+      margin-right: 0.5rem;
+      color: #777;
+      font-variant-numeric: tabular-nums;
       white-space: nowrap;
     }
 
-    .category-posts .post-item + .post-item::before {
-      content: " · ";
-      color: var(--muted-text);
-      margin: 0 0.1rem;
+    a.post-link {
+      text-decoration: none;
+      color: #222;
     }
 
-    .category-posts time {
-      font-variant-numeric: tabular-nums;
-      color: var(--muted-text);
-      margin-right: 0.25rem;
-    }
-
-    .tag-badge {
-      display: inline-block;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 0.05rem 0.5rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--muted-text);
-      margin-left: 0.35rem;
-    }
-
-    footer {
-      margin-top: 3rem;
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-      font-size: 0.85rem;
-      color: var(--muted-text);
-    }
-
-    footer a {
-      color: inherit;
+    a.post-link:hover {
       text-decoration: underline;
-      text-decoration-style: dotted;
-    }
-
-    @media (min-width: 800px) {
-      .layout {
-        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      }
-
-      .sidebar {
-        font-size: 0.95rem;
-      }
-
-      .sidebar h2 {
-        font-size: 1.1rem;
-        margin-top: 0;
-      }
-
-      .sidebar section {
-        margin-bottom: 1.5rem;
-      }
-
-      .sidebar ul {
-        padding-left: 1rem;
-        margin: 0.25rem 0;
-      }
-
-      .sidebar li {
-        margin: 0.15rem 0;
-      }
     }
   </style>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
 <div class="page">
   <header>
-    <h1 class="site-title"><a href="/">Example Blog</a></h1>
-    <nav aria-label="Primary">
-      <a href="#about" class="nav-pill">About</a>
-      <a href="#talks" class="nav-pill">Talks</a>
-      <a href="#projects" class="nav-pill">Projects</a>
-      <a href="#favorites">Favorites</a>
+    <h1 class="site-title">Your Name</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
       <a href="#til">TIL</a>
       <a href="#rss">RSS</a>
     </nav>
   </header>
 
-  <main id="main">
-    <section class="intro" aria-labelledby="intro-heading">
-      <h2 id="intro-heading" style="font-size:1.2rem; margin:0 0 0.3rem;">Hey! I&#39;m Alex.</h2>
-      <p>Welcome to my notebook on computers, infrastructure, and little experiments.</p>
-      <p>Below is every post I&#39;ve published, grouped by topic, plus the most recent ones up front.</p>
-      <div class="intro-highlight">
-        <p>
-          Prefer email? You can subscribe to a small weekly digest of new posts.
-          Or grab the RSS feed if that&#39;s more your style.
-        </p>
-      </div>
-    </section>
+  <section class="intro" id="about">
+    <p>Hey! I'm Your Name. This is my blog / notebook about whatever you write about.</p>
+    <p>Here’s every post I’ve written, organized by section. Enjoy!</p>
+  </section>
 
-    <div class="layout">
-      <!-- Main column -->
-      <div>
-        <!-- Most recent posts -->
-        <section aria-labelledby="recent-posts-heading">
-          <h2 id="recent-posts-heading" class="section-title">Most recent 10 posts</h2>
-          <ul class="recent-posts-list">
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2025-10-10">Oct 10 2025</time>
-              </span>
-              <a href="#post-1">Notes on switching editors</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2025-06-26">Jun 26 2025</time>
-              </span>
-              <a href="#post-2">The hidden rules of terminals</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2025-06-10">Jun 10 2025</time>
-              </span>
-              <a href="#post-3">Using make without being a C programmer</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2025-03-07">Mar 7 2025</time>
-              </span>
-              <a href="#post-4">Things I learned reading ANSI escape code docs</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2025-02-13">Feb 13 2025</time>
-              </span>
-              <a href="#post-5">How to add a directory to your PATH (slowly)</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2025-02-05">Feb 5 2025</time>
-              </span>
-              <a href="#post-6">Annoyances I have with terminals</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2025-01-11">Jan 11 2025</time>
-              </span>
-              <a href="#post-7">Building a &quot;modern&quot; terminal setup from scratch</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2024-12-12">Dec 12 2024</time>
-              </span>
-              <a href="#post-8">The small rules terminal programs follow</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2024-11-29">Nov 29 2024</time>
-              </span>
-              <a href="#post-9">Why pipes sometimes appear stuck</a>
-            </li>
-            <li>
-              <span class="post-date-inline">
-                <time datetime="2024-11-18">Nov 18 2024</time>
-              </span>
-              <a href="#post-10">Importing a JS library without a build step</a>
-            </li>
-          </ul>
-        </section>
+  <section>
+    <h2 class="section-title">Most recent 10 posts</h2>
+    <ul class="post-list">
+      <li>
+        <span class="post-date">Oct 10 2025</span>
+        <a class="post-link" href="#">Notes on switching to Helix from vim</a>
+      </li>
+      <li>
+        <span class="post-date">Jun 26 2025</span>
+        <a class="post-link" href="#">New zine: The Secret Rules of the Terminal</a>
+      </li>
+      <!-- add more items here -->
+    </ul>
+  </section>
 
-        <!-- Categories -->
-        <section class="categories" aria-label="All posts by category">
-          <p style="margin:0.75rem 0 0.75rem;">
-            …and all posts by category:
-            (<a href="#popular">see popular posts</a>)
-          </p>
+  <section>
+    <h2 class="section-title">Uncategorized</h2>
+    <ul class="post-list">
+      <li>
+        <span class="post-date">Oct 10 2025</span>
+        <a class="post-link" href="#">Notes on switching to Helix from vim</a>
+      </li>
+      <!-- more posts in this section -->
+    </ul>
+  </section>
 
-          <article class="category">
-            <h3>Unsorted thoughts</h3>
-            <div class="category-posts">
-              <span class="post-item">
-                <time datetime="2025-10">Oct 2025</time>
-                <a href="#post-1">Notes on switching editors</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2025-06">Jun 2025</time>
-                <a href="#post-2">The hidden rules of terminals</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2025-06">Jun 2025</time>
-                <a href="#post-3">Using make without being a C programmer</a>
-              </span>
-            </div>
-          </article>
-
-          <article class="category">
-            <h3>Cool tools &amp; tiny ideas</h3>
-            <div class="category-posts">
-              <span class="post-item">
-                <time datetime="2024-09">Sep 2024</time>
-                <a href="#post-11">Some Go web notes</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2024-09">Sep 2024</time>
-                <a href="#post-12">Shell features I still love</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2023-08">Aug 2023</time>
-                <a href="#post-13">Helping people feel at home on the CLI</a>
-              </span>
-            </div>
-          </article>
-
-          <article class="category">
-            <h3>Terminals</h3>
-            <div class="category-posts">
-              <span class="post-item">
-                <time datetime="2025-03">Mar 2025</time>
-                <a href="#post-4">Things I learned reading ANSI escape code docs</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2025-02">Feb 2025</time>
-                <a href="#post-5">How to add a directory to your PATH (slowly)</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2025-02">Feb 2025</time>
-                <a href="#post-6">Annoyances I have with terminals</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2025-01">Jan 2025</time>
-                <a href="#post-7">Building a &quot;modern&quot; terminal setup from scratch</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2024-12">Dec 2024</time>
-                <a href="#post-8">The small rules terminal programs follow</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2024-11">Nov 2024</time>
-                <a href="#post-9">Why pipes sometimes appear stuck</a>
-              </span>
-            </div>
-          </article>
-
-          <article class="category">
-            <h3>How computers do things</h3>
-            <div class="category-posts">
-              <span class="post-item">
-                <time datetime="2024-08">Aug 2024</time>
-                <a href="#post-14">Things about Go structs I missed</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2023-03">Mar 2023</time>
-                <a href="#post-15">Implementing a tiny TLS-ish protocol</a>
-              </span>
-              <span class="post-item">
-                <time datetime="2022-12">Dec 2022</time>
-                <a href="#post-16">Why DNS still feels tricky</a>
-              </span>
-            </div>
-          </article>
-
-          <!-- Add more categories as needed -->
-        </section>
-      </div>
-
-      <!-- Sidebar (on wider screens) -->
-      <aside class="sidebar" aria-label="Extra links and info">
-        <section id="about">
-          <h2>About</h2>
-          <p>
-            Hi, I&#39;m Alex. I like debugging, networking, and understanding how
-            computers behave when they&#39;re a little bit broken.
-          </p>
-          <p>
-            This site is a collection of notes to my future self that I happen
-            to publish on the internet.
-          </p>
-        </section>
-
-        <section id="talks">
-          <h2>Talks</h2>
-          <ul>
-            <li><a href="#">Making confusing tools friendlier</a></li>
-            <li><a href="#">Learning DNS in slow motion</a></li>
-            <li><a href="#">Building debugging playgrounds</a></li>
-          </ul>
-        </section>
-
-        <section id="projects">
-          <h2>Projects</h2>
-          <ul>
-            <li><a href="#">dns-lab: play with DNS locally</a></li>
-            <li><a href="#">term-watch: peek at terminal escapes</a></li>
-            <li><a href="#">tiny-prof: sampling profiler experiment</a></li>
-          </ul>
-        </section>
-
-        <section id="favorites">
-          <h2>Favorites</h2>
-          <p>Some posts people seem to like:</p>
-          <ul>
-            <li><a href="#post-9">Why pipes sometimes appear stuck</a></li>
-            <li><a href="#post-16">Why DNS still feels tricky</a></li>
-            <li><a href="#post-15">Implementing a tiny TLS-ish protocol</a></li>
-          </ul>
-        </section>
-
-        <section id="til">
-          <h2>TIL</h2>
-          <p>
-            Tiny notes live in a separate <a href="#">TIL (Today I Learned)</a> log.
-          </p>
-        </section>
-
-        <section id="rss">
-          <h2>RSS</h2>
-          <p>
-            Feed: <code class="tag-badge">/feed.xml</code><br>
-            Weekly digest: <a href="#">subscribe with email</a>
-          </p>
-        </section>
-      </aside>
-    </div>
-
-    <footer>
-      <p>
-        Built with plain HTML &amp; CSS.
-        You&#39;re welcome to copy the <code>layout</code> ideas and adapt them.
-      </p>
-    </footer>
-  </main>
+  <section>
+    <h2 class="section-title">Another section</h2>
+    <ul class="post-list">
+      <li>
+        <span class="post-date">Mar 7 2025</span>
+        <a class="post-link" href="#">Standards for ANSI escape codes</a>
+      </li>
+    </ul>
+  </section>
 </div>
 </body>
 </html>
