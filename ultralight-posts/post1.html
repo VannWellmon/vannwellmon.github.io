@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vann Wellmon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .site-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #e75b00;
+      margin: 0;
+    }
+    /* 2x2 image square for inline content */
+    .image-square {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+
+      max-width: 400px;     /* overall size */
+      margin: 1.5rem auto; /* spacing + center in page */
+    }
+
+    .image-square img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: block;
+    }
+    .image-square img {
+      border-radius: 6px;
+    }
+
+    figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .content-image {
+      max-width: 100%;   /* never overflow the text column */
+      height: auto;      /* keep natural aspect ratio */
+      display: block;    /* so margins work */
+      margin: 1.5rem auto;
+    }
+
+    .content-image {
+      width: 100%;
+      max-width: 600px;  /* pick a size you like */
+      height: auto;
+      display: block;
+      margin: 1.5rem auto;
+    }
+
+    /* Make name look normal but clickable */
+    .title-link {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .title-link:visited {
+      color: inherit;
+    }
+    .title-link:hover {
+      opacity: 0.85;
+    }
+
+    nav a {
+      display: block;
+      text-align: right;
+      text-decoration: none;
+      color: #222;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0.15rem 0;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .intro {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .intro p {
+      margin: 0.3rem 0;
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.6rem;
+    }
+
+    ul.post-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    ul.post-list li {
+      margin: 0.15rem 0;
+    }
+
+    .post-date {
+      margin-right: 0.5rem;
+      color: #777;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    a.post-link {
+      text-decoration: none;
+      color: #222;
+    }
+
+    a.post-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  
+  <header>
+    <h1 class="site-title">
+      <a href="index.html" class="title-link">Vann Wellmon</a>
+    </h1>
+    <nav>
+      <a href="bio.html">Bio</a>
+      <a href="https://www.linkedin.com/in/VannWellmon" target="_blank">LinkedIn</a>
+      <a href="mailto:vannwellmon@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+<h2 class="section-title">Ultralight Project - Start</h2>
+
+<p>
+  A few years back I saw a video from <a href="https://youtu.be/hp7JcmwKQcU?si=5xOwFumUy-nRdygJ"> Peter Sripol</a> where he built an FAA Part 103 Ultralight and since then have been immensely jealous. 
+  Recently, my roommate moved out which in combination with having far more free time means it’s time to build an airplane in my 4th floor LA apartment! 
+</p>
+
+<p>
+  One of the things that drew me to the Ultralights vs. other light sport aircraft was the regulations. 
+  Part 103 allows you to build/buy and then fly an airplane with effectively no regulation on either the building or flying. 
+  The few existing regulations also made it dangerously easy for someone who has never designed an RC plane to attempt manned flight. 
+  With that said what follows are the broad decisions I’ve made, constraints I face (regulatory and physical), and an overview of the project that makes the motorcycle feel safe. 
+</p>
+
+<h3 class="section-title">Requirements & Goals</h3>
+
+<p>
+  Part 103 is pretty simple, it dictates a fixed weight, max speed, stall speed, as well as operating restrictions on time of day, airspace, etc. 
+  These may seem like something you could check your design against in the final phase, and for experienced builders that may be the best approach, but for me they provided incredible early phase requirements. 
+  If you take the mass to be worst case, speeds to be worst case, etc. you can actually get through the vast majority of a first pass sizing attempt without any painful optimization or time spent lost in largely dimensioned design space. 
+</p>
+
+<p>
+  In addition to operating legally (to the best of my judgment—so help me God), I had serious goals for the project. 
+  These spanned the technical ground I wanted to cover as well as the vehicle’s function, performance, and aesthetic. 
+  While these goals made up something of a living document in my head below lists the most static and relevant ones: 
+  
+<ul>
+  <li>Stability. This thing needs to be stable and easy to fly, forgiving in stall, and consistent throughout the limited flight envelope. </li>
+  <li>Speaking of flight envelopes: limited. A friend has a field I can fly in the high desert with the downside being that this ultralight carrying a 200lb, 6’3” pilot now has to do that at ~0.5 miles in the hot air. </li>
+  <li>Compounding this is the fact that the runway is ~500ft, dirt, and very narrow. Initially I was going to go with two axis control but any crosswind would easily blow me off the runway so that complexity was added back. </li>
+  <li>Propulsion: I’ve worked with ICE engines before and don’t have a desire to do that on a plane. While the performance likely trades, I want to gain some BLDC experience and since the market is sparse, I plan to build my own motor and packs. </li>
+    <ul>
+      <li>The whole building a BLDC motor and battery pack for manned flight angle seems aggressive but my small apartment can’t quite fit a plane so I need something to work on until the lease ends and I can get a garage.  </li>
+    </ul>
+  <li>Materials: I am very new to plane building, as such I don’t have the intuition I believe is needed to effectively use composites or wood on this project; while it also probably trades poorly in some areas I plan to stick with alu/steel that I’m comfortable running basic structures analyses on. I already have a lot of ground to cover on structures and new material and design principles feels dangerously out of scope. </li>
+  <li>Trailer-ability: I need to tow this thing out to the site so wings need to be removable and length can’t be prohibitive. </li>
+  <li>Performance: This thing is meant to fly around the field, I have no range goals but ideally >20 minutes of cruise.  </li>
+</ul>
+</p>
+
+<h3 class="section-title">Comparables</h3>
+
+<p>
+I have no experience designing aircraft. 
+To build some familiarity I spent a lot of time both speaking with friends but primarily looking at comparable ultralight/light sport/bush aircraft to home in on what I wanted the design to look like and what characteristics I wanted to avoid. 
+</p>
+
+<figure>
+  <img src="images/AirBike.jpg" alt="" class="content-image">
+  <figcaption>ISON Air-Bike: Puller style Ultralight</figcaption>
+</figure>
+
+<figure>
+  <img src="images/Firefly.jpg" alt="" class="content-image">
+  <figcaption>Kolb Firefly: Pusher Ultralight</figcaption>
+</figure>
+
+<figure>
+  <img src="images/Ruckus.jpg" alt="" class="content-image">
+  <figcaption>Top Rudder Rukus: Puller Style Ultralight (I don’t believe this is classed Ultralight anymore)</figcaption>
+</figure>
+
+
+<h3 class="section-title">Preliminary Decisions</h3>
+
+<p>
+  
+<ul>
+  <li>High Wing: Easy trade for stability and structures design (spar in tension, max 1g so no buckling fears)</li>
+  <li>Puller design over Tractor: This wasn’t very rigorous but I made other trade decisions that penalized efficiency and wanted to claw some back, also anticipated it being better for structures </li>
+  <li>Structures</li>
+    <ul>
+      <li>Tail boom: Simplicity/ease of analysis.</li>
+      <li>High wing struts in tension during flight. 1-2 haven’t decided yet</li>
+      <li>Frame: Welded steel/alu tube</li>
+    </ul>
+  <li>Flight controls: Elevator and rudder off direct control-rods. Ailerons may be electrically actuated to reduce mechanical complexity at the wing disconnect but this is an open trade.  </li>
+</ul>
+</p>
+
+<h3 class="section-title">Looking Forward</h3>
+
+<p>
+That’s about where things sit as 2025 comes to an end with me extremely excited to see how things progress! 
+While I want to be weary of scope creep as I’ve seen how it can kill personal projects; certain side quests like learning to TIG weld the frame, designing a custom BLDC, and building a high-power battery pack are incredibly exciting prospects. 
+I’ll update as I make notable progress and appreciate the read! 
+</p>
+  
