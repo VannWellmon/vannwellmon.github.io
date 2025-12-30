@@ -161,43 +161,54 @@
 <h2 class="section-title">Ultralight Project - Start</h2>
 
 <p>
-  A few years back I saw a video from <a href="https://youtu.be/hp7JcmwKQcU?si=5xOwFumUy-nRdygJ"> Peter Sripol</a> where he built an FAA Part 103 Ultralight and since then have been immensely jealous. 
-  Recently, my roommate moved out which in combination with having far more free time means it’s time to build an airplane in my 4th floor LA apartment! 
+  A few years back, I saw a video from <a href="https://youtu.be/hp7JcmwKQcU?si=5xOwFumUy-nRdygJ"> Peter Sripol</a> where he built an FAA Part 103 ultralight. 
+  This struck a chord in me, and since then I've been immensely jealous. 
+  Recently, my roommate moved out, which in combination with having far more free time means it’s time to build an airplane in my fourth-floor LA apartment! 
 </p>
 
 <p>
-  One of the things that drew me to the Ultralights vs. other light sport aircraft was the regulations. 
-  Part 103 allows you to build/buy and then fly an airplane with effectively no regulation on either the building or flying. 
-  The few existing regulations also made it dangerously easy for someone who has never designed an RC plane to attempt manned flight. 
-  With that said what follows are the broad decisions I’ve made, constraints I face (regulatory and physical), and an overview of the project that makes the motorcycle feel safe. 
+One of the things that drew me to ultralights, as opposed to other light sport aircraft, was the regulatory environment. 
+Part 103 allows you to build/buy and then fly an airplane with effectively no regulation on either the building or flying. 
+The few existing regulations also make it dangerously easy for someone who has never designed an RC plane to attempt manned flight.
 </p>
+
+<p>
+With that said, what follows are the broad decisions I’ve made, the constraints I face (both regulatory and physical), and an overview of a project that makes riding a motorcycle feel safe.
+</p>
+<figure>
+  <img src="images/Sripol.png" alt="" class="content-image">
+  <figcaption>Peter Sripol's MK4 Ultralight</figcaption>
+</figure>
 
 <h3 class="section-title">Requirements & Goals</h3>
 
 <p>
-  Part 103 is pretty simple, it dictates a fixed weight, max speed, stall speed, as well as operating restrictions on time of day, airspace, etc. 
-  These may seem like something you could check your design against in the final phase, and for experienced builders that may be the best approach, but for me they provided incredible early phase requirements. 
-  If you take the mass to be worst case, speeds to be worst case, etc. you can actually get through the vast majority of a first pass sizing attempt without any painful optimization or time spent lost in largely dimensioned design space. 
+  Part 103 is fairly simple: it dictates a fixed weight, maximum speed, stall speed, as well as operating restrictions on time of day, airspace, etc. 
+  These may seem like something you could check your design against in the analysis phase, and for experienced builders that may be the best approach, but for me they provided well-constrained early-phase requirements. 
+  If you take the mass to be worst case, speeds to be worst case, etc. you can actually get through the majority of a first-pass sizing attempt without any painful optimization or time spent lost in largely dimensioned design space. 
 </p>
 
 <p>
-  In addition to operating legally (to the best of my judgment—so help me God), I had serious goals for the project. 
+  In addition to operating legally (to the best of my judgment, your honor), I had serious goals for the project. 
   These spanned the technical ground I wanted to cover as well as the vehicle’s function, performance, and aesthetic. 
-  While these goals made up something of a living document in my head below lists the most static and relevant ones: 
+  While these goals evolved somewhat over time, the most static and relevant ones are listed below:
   
 <ul>
-  <li>Stability. This thing needs to be stable and easy to fly, forgiving in stall, and consistent throughout the limited flight envelope. </li>
-  <li>Speaking of flight envelopes: limited. A friend has a field I can fly in the high desert with the downside being that this ultralight carrying a 200lb, 6’3” pilot now has to do that at ~0.5 miles in the hot air. </li>
-  <li>Compounding this is the fact that the runway is ~500ft, dirt, and very narrow. Initially I was going to go with two axis control but any crosswind would easily blow me off the runway so that complexity was added back. </li>
+  <li>Stability. The aircraft must be stable and easy to fly, forgiving in stall, and predictable throughout its limited flight envelope. </li>
+  <li>Speaking of flight envelopes: limited. A friend has a field I can fly in the high desert with the downside being that this ultralight, carrying a 200 lb, 6’3” pilot now has to do that at ~0.5 miles in the hot air. </li>
+  <li>Compounding this is the fact that the runway is ~500 ft, dirt, and very narrow. Initially I was going to go with two-axis control but any crosswind would easily blow me off the runway so that complexity was added back. </li>
   <li>Propulsion: I’ve worked with ICE engines before and don’t have a desire to do that on a plane. While the performance likely trades, I want to gain some BLDC experience and since the market is sparse, I plan to build my own motor and packs. </li>
     <ul>
       <li>The whole building a BLDC motor and battery pack for manned flight angle seems aggressive but my small apartment can’t quite fit a plane so I need something to work on until the lease ends and I can get a garage.  </li>
     </ul>
-  <li>Materials: I am very new to plane building, as such I don’t have the intuition I believe is needed to effectively use composites or wood on this project; while it also probably trades poorly in some areas I plan to stick with alu/steel that I’m comfortable running basic structures analyses on. I already have a lot of ground to cover on structures and new material and design principles feels dangerously out of scope. </li>
-  <li>Trailer-ability: I need to tow this thing out to the site so wings need to be removable and length can’t be prohibitive. </li>
+  <li>Materials: I am very new to plane building, as such I don’t have the intuition I believe is needed to effectively use composites or wood on this project. While it also probably trades poorly in some areas I plan to stick with alu/steel that I’m comfortable running basic structures analyses on. I already have a lot of ground to cover on structures and new material and design principles feels dangerously out of scope. </li>
+  <li>Trailerability: I need to tow this thing out to the site so wings need to be removable and length can’t be prohibitive. </li>
   <li>Performance: This thing is meant to fly around the field, I have no range goals but ideally >20 minutes of cruise.  </li>
 </ul>
+  Ultimately, my goal is to make something that flies with minimum overhead while not being completely reckless. 
+
 </p>
+
 
 <h3 class="section-title">Comparables</h3>
 
@@ -218,7 +229,7 @@ To build some familiarity I spent a lot of time both speaking with friends but p
 
 <figure>
   <img src="images/Ruckus.jpg" alt="" class="content-image">
-  <figcaption>Top Rudder Rukus: Puller Style Ultralight (I don’t believe this is classed Ultralight anymore)</figcaption>
+  <figcaption>Top Rudder Rukus: Puller Style Ultralight (I don’t believe this is classed ultralight anymore)</figcaption>
 </figure>
 
 
@@ -244,6 +255,10 @@ To build some familiarity I spent a lot of time both speaking with friends but p
 <p>
 That’s about where things sit as 2025 comes to an end with me extremely excited to see how things progress! 
 While I want to be weary of scope creep as I’ve seen how it can kill personal projects; certain side quests like learning to TIG weld the frame, designing a custom BLDC, and building a high-power battery pack are incredibly exciting prospects. 
-I’ll update as I make notable progress and appreciate the read! 
+I’ll update as I make notable progress and I appreciate the read! 
 </p>
-  
+
+<figure>
+  <img src="images/MyPlane1.png" alt="" class="content-image">
+  <figcaption>My Design! Progress at the close of 2025</figcaption>
+</figure>
