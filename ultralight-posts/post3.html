@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vann Wellmon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .site-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #e75b00;
+      margin: 0;
+    }
+    /* 2x2 image square for inline content */
+    .image-square {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+
+      max-width: 400px;     /* overall size */
+      margin: 1.5rem auto; /* spacing + center in page */
+    }
+
+    .image-square img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: block;
+    }
+    .image-square img {
+      border-radius: 6px;
+    }
+
+    figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .content-image {
+      max-width: 100%;   /* never overflow the text column */
+      height: auto;      /* keep natural aspect ratio */
+      display: block;    /* so margins work */
+      margin: 1.5rem auto;
+    }
+
+    .content-image {
+      width: 100%;
+      max-width: 600px;  /* pick a size you like */
+      height: auto;
+      display: block;
+      margin: 1.5rem auto;
+    }
+
+    /* Make name look normal but clickable */
+    .title-link {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .title-link:visited {
+      color: inherit;
+    }
+    .title-link:hover {
+      opacity: 0.85;
+    }
+
+    nav a {
+      display: block;
+      text-align: right;
+      text-decoration: none;
+      color: #222;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0.15rem 0;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .intro {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .intro p {
+      margin: 0.3rem 0;
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.6rem;
+    }
+
+    ul.post-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    ul.post-list li {
+      margin: 0.15rem 0;
+    }
+
+    .post-date {
+      margin-right: 0.5rem;
+      color: #777;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    a.post-link {
+      text-decoration: none;
+      color: #222;
+    }
+
+    a.post-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  
+  <header>
+    <h1 class="site-title">
+      <a href="../index.html" class="title-link">Vann Wellmon</a>
+    </h1>
+    <nav>
+      <a href="../bio.html">Bio</a>
+      <a href="https://www.linkedin.com/in/VannWellmon" target="_blank">LinkedIn</a>
+      <a href="mailto:vannwellmon@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+<h2 class="section-title">Ultralight Project - Trudging Along</h2>
+
+<p>
+  My last update for this project was ~two months ago, and I figured it was time for the void to get a brief update on things. 
+  Fundamentally, I’ve been grappling with the transition point from my 1-D sizing analysis to detailed design work. 
+  Unsurprisingly, it’s been a very difficult thing to pin down and an easy part of the process to procrastinate on. 
+</p>
+
+<p>
+Complaining aside, I have spent a decent amount of time considering next steps and running design trades. 
+I’d like to share some of those core decisions, why I made them, and how they impact the rest of the project.</p>
+
+
+<h3 class="section-title">Decisions Made</h3>
+
+<p>
+I ended my last post—and my last serious block of effort—by calculating a thrust requirement for the ultralight. 
+These values were internally consistent across different approaches, as well as with comparable values I could find online. 
+I had started a BLDC design process, but I quit for a few reasons. 
+Firstly, I was doing the BLDC in-house since I thought I wouldn’t be able to make significant frame or wing progress given my apartment size, but I took some measurements and realized I could wheel everything out.</p>
+
+<p>
+The biggest problem I encountered, however, was an under-constrained design space. 
+I didn’t have a prop, I didn’t have a battery, etc. I “fixed” this problem by deciding to copy a motor I found online. 
+After about two days of reading BLDC design textbooks and going through some initial sizing, I finally realized how absurd it was to make a shittier, more expensive version of this motor when I could just buy it and save myself a few months. 
+I also plan to build the pack myself, which I think is plenty of propulsion scope for this project. 
+(As an aside: I really want to get into BLDC motor and controller design at some point—now is a bad time.)
+</p>
+
+<p>
+Another early decision I’m rolling back is the control scheme. 
+Long ago, I was planning to go with two-axis control (rudder and elevator only) to save weight and complexity, and to allow for easier trailerability. 
+A few months back, I decided to add ailerons for better handling, particularly during landing since my pad is very narrow. 
+While I think it’s well-advised to have ailerons on an aircraft, the complexity they bring to this project is just not what I’m looking for.
+</p>
+
+<figure>
+  <img src="images/AnOpinion.png" alt="" class="content-image">
+  <figcaption>The Perspective of the Week</figcaption>
+</figure>
+
+<p>
+It’s important, when making a bad choice, to be clear about why you’re making that choice. 
+For me, this ultralight is going to fly 1–2 times and then be retired. 
+The hard requirements amount to: take off, don’t be illegal (at least visibly), and don’t die. 
+I’m confident I can satisfy these with two-axis control.
+</p>
+
+<p>
+Lastly, I’ve made some semi-final decisions (as with all personal projects) on the structures—in particular, the wing, frame, and empennage design. 
+These will all probably get their own posts as I fabricate them (including fabricated, backdated analysis).
+</p>
+
+
+<h3 class="section-title">Current Motion</h3>
+
+<p>
+These are exciting times in the workshop/living room! I’ve finally bought a TIG welder so I can fabricate the frame. 
+That said, I’m extremely new to TIG and want to practice as well as take a class. 
+That should give me time in the interim to design the frame and the rest of the primary and secondary structure (not sure if this is airplane terminology, but it is my terminology).
+</p>
+
+<figure>
+  <img src="images/325X.png" alt="" class="content-image">
+  <figcaption>Welder of Choice - PrimeWeld 325X</figcaption>
+</figure>
+
+</p>
+A week or so ago, I was ready to start cutting material, but some productive conversations with coworkers convinced me to rein it in just a bit. 
+My current frame design appears to be tail-heavy, and while I plan to size and place the battery pack around weight and balance, that may not leave me the margin I need. 
+So unfortunately, I will have to be an engineer and do some design work.
+</p>
+
+</p>
+Jokes aside, completing W&B is a fantastic method of convincing me to actually go and do some dull design and analysis work. 
+My main areas of focus for this push are completing the frame design, wing design, empennage, horizontal/vertical stabilizer design, and propulsion. 
+I’m hitting a second, slightly lower, high-water mark in project motivation. 
+My hope is that one final push here can get me off the computer and into the shop (pushing the couch out of the way and pulling the dryer so I can use the 220V plug).
+</p>
+
+<figure>
+  <img src="images/CaptainAndFirstMate.png" alt="" class="content-image">
+  <figcaption>Captain and First Mate - PVC Test Frame</figcaption>
+</figure>
+
+<h3 class="section-title">A Personal Aside</h3>
+
+</p>
+To be honest, I’ve really been struggling to stay motivated, especially through March and April (to which this post is backdated for sanity reasons). 
+My job just raised a Series A, but the demos and hours required really drained me. 
+I also took up climbing (thank you, Caroline, if you ever read this), which has been fantastic and wonderful—both the physical and social aspects.
+</p>
+
+<p>
+The long hours, new hobby, and a personal project that effectively mimics my day-to-day can be demotivating. 
+I’ve found myself tempted to quit, or even worse, start a new project. 
+I think distraction is one of the most killer coping mechanisms for personal engineering projects. 
+It is so easy to fall into the comfort of something new and exciting, but you eventually find that it too has pitfalls, challenges, and the ultimate point of failure: you.
+</p>
+
+<p>
+I watched a really great video by Joe Barnard recently on this topic. 
+His central point was that our ultimate requirement as weekend warriors is to finish the project. 
+Everything else is secondary to getting something—anything—across the line. 
+I found that extremely motivating. 
+As a young engineer, I think it’s easy and tempting to fall into analysis paralysis in the face of many of these problems. 
+I believe we’d all prefer to spend a bit of time fixing rash decisions we made in the shop versus spending that same time at the computer with work’s Ansys booted up. 
+For better or worse, I plan to finish.
+</p>
+
+<p>
+Somewhat separately, I read some excerpts from <i>Either/Or</i>, and it forced a moment of reflection. 
+I had two relationships end in the fall of last year, and it woke me up to the fact that my life outside of work was empty. 
+That emptiness made me see a “full life” as the end goal—a life filled with friends, hobbies, relationships, trips, etc. 
+That reading, however, sparked a different perspective: one that rewards immense focus on very few things. 
+I don’t think this is ever something I’d consciously decide, but I’m starting to build a life out here, and I’m not sure which direction I want to go just yet.
+</p>
+
