@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vann Wellmon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .site-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #e75b00;
+      margin: 0;
+    }
+    /* 2x2 image square for inline content */
+    .image-square {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+
+      max-width: 400px;     /* overall size */
+      margin: 1.5rem auto; /* spacing + center in page */
+    }
+
+    .image-square img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: block;
+    }
+    .image-square img {
+      border-radius: 6px;
+    }
+
+    figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .content-image {
+      max-width: 100%;   /* never overflow the text column */
+      height: auto;      /* keep natural aspect ratio */
+      display: block;    /* so margins work */
+      margin: 1.5rem auto;
+    }
+
+    .content-image {
+      width: 100%;
+      max-width: 600px;  /* pick a size you like */
+      height: auto;
+      display: block;
+      margin: 1.5rem auto;
+    }
+
+    /* Make name look normal but clickable */
+    .title-link {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .title-link:visited {
+      color: inherit;
+    }
+    .title-link:hover {
+      opacity: 0.85;
+    }
+
+    nav a {
+      display: block;
+      text-align: right;
+      text-decoration: none;
+      color: #222;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0.15rem 0;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .intro {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .intro p {
+      margin: 0.3rem 0;
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.6rem;
+    }
+
+    ul.post-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    ul.post-list li {
+      margin: 0.15rem 0;
+    }
+
+    .post-date {
+      margin-right: 0.5rem;
+      color: #777;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    a.post-link {
+      text-decoration: none;
+      color: #222;
+    }
+
+    a.post-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  
+  <header>
+    <h1 class="site-title">
+      <a href="../index.html" class="title-link">Vann Wellmon</a>
+    </h1>
+    <nav>
+      <a href="../bio.html">Bio</a>
+      <a href="https://www.linkedin.com/in/VannWellmon" target="_blank">LinkedIn</a>
+      <a href="mailto:vannwellmon@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+<h2 class="section-title">Ultralight Project - Weight and Balance</h2>
+
+<p>
+  A few weeks ago I was about to start fabricating the frame when a co-worker gently convinced me to take some time to evaluate the W&B for the Lawn Dart (working name for the Ultralight) before starting fabrication. 
+  I thought this would be a fairly easy process but here I am a month later having completed structures, propulsion, etc. sizing for the entire Dart.  
+</p>
+
+
+<h3 class="section-title">A Method to the Madness</h3>
+
+<p>
+I started the W&B effort by deciding on weight “buckets,” comprehensive categories I could evaluate one by one. 
+</p>
+
+<p>
+The first “bucket” was propulsion. I had already decided to go with a BLDC from FREERCHOBBY since the cost was so low. 
+I was stuck between their 25 and 30kW offerings but the mass delta was negligible and the 30kW offering had a lower shaft speed. 
+To be clear I haven’t worked through prop sizing yet to evaluate their ability to hit my thrust need but from preliminary hand calcs 30kW at the shaft should be plenty. 
+That said I did pick a roughly accurate prop to get a weight number (under 1kg so not critical at this stage). 
+</p>
+
+<p>
+I also found a 28S ESC and worked through some incredibly easy and incredibly poorly presented calcs for that pack weight (I’m baselining a custom build, likely 21700 cells). 
+The mass is pretty high here which should give me adequate margin to fudge CG location. 
+</p>
+
+<figure>
+  <img src="images/BatterySizing.png" alt="" class="content-image">
+  <figcaption>Wow! What a clear and intuitive chart!</figcaption>
+</figure>
+
+<p>
+The next major “buckets” were fuselage, wings, and tail. The complexity of the sizing here was structures calcs for the loaded members. 
+I’m not going to go into detail here but the sizing was broadly dominated not by weight capacity (“metal is strong” – senior engineer @ work) but by deflection or by the free response. 
+While the structures design is pretty fast and loose around here I did indulge in some non-linearities to keep everything from getting too crazy. 
+</p>
+
+<figure>
+  <img src="images/SpanwiseLoadDist.png" alt="" class="content-image">
+  <figcaption>Non-linear spanwise load distribution to produce more liberal structures outputs</figcaption>
+</figure>
+
+
+<h3 class="section-title">Output</h3>
+
+<p>
+ Ultimately, the outcome of this exercise was very exciting! 
+ My calculated weight was 258lbs, only 8lbs over the target which is extremely exciting. 
+ CG location, after some fiddling with battery position, ended up within 2” of target. All in: very good. 
+</p>
+
+</p>
+So, faced with exciting results and a chance to enter component design and manufacturing I’m doing what every great engineer does: start over! 
+</p>
+
+</p>
+I’m mostly joking, but I am going to work through a re-sizing effort. 
+My motivation is two-fold, firstly, I have all the infrastructure and process figured out. 
+It should be a comparatively insignificant effort to redo the exercise at this point. 
+Secondly, I think my plane is a bit too large. The plot below shows the weight ratios of my plane as compared to Raymer’s fig 66. 
+Overall everything is tracking quite well, other than my wing, which is ~3x heavier than Raymer estimates it should be. 
+</p>
+
+<figure>
+  <div style="display: flex; gap: 16px;">
+    <img src="images/WeightRatios.png" alt="" class="content-image" style="flex: 1; min-width: 0;">
+    <img src="images/PieChart1.png" alt="" class="content-image" style="flex: 1; min-width: 0;">
+  </div>
+  <figcaption>Current Weight Distributions</figcaption>
+</figure>
+
+</p>
+There are two major reasons for this. 
+Firstly, I’m using very dense Home Depot pink insulation foam for the weight estimate instead of a more appropriate low-density EPS foam. 
+Secondly, all my craft sizing numbers work backwards from a 250lbs plane. 
+I think this is too conservative. 
+My re-size effort is going to assume ~175lbs plane weight and be less conservative on sizing. 
+Hopefully this results in smaller wings, tighter overall sizing, etc especially given how much of my sizing cases are non-linear (a huge consideration was cantilevered beam stiffness, which scales with length^4, meaning that even small reductions in span could result in far lighter structures!) 
+</p>
+
+</p>
+Overall, this exercise gave me significant confidence in my approach and direction, these first pass numbers would likely fly. 
+Anyways, I’m super pumped to keep calculating and hopefully to start building soon! 
+</p>
